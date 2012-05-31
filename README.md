@@ -8,5 +8,4 @@ This gives the Haml project a reasonable way to both demote current
 functionality, such as the Textile and Maruku filters, and add new experimental
 functionality that may later be added to the core.
 
-At the moment this is *not* on Rubygems, since it is meant to work with Haml
-3.2, which has not been released yet.
+Haml-contrib currently requires the latest alpha version of Haml.
