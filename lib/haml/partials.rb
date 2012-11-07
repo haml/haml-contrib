@@ -28,7 +28,9 @@ module Haml
     # partial and will have the same value as the parent template.
     #
     # This method makes no effort to cache the generated Ruby code, it simply
-    # uses +Haml::Engine.new().render+ each time.
+    # uses +Haml::Engine.new().render+ each time. This implementation is intended
+    # for static site generators or one off document generation, and not as a
+    # base for a web framework.
     #
     # @param partial [#to_s] the filename of the partial to render
     # @param locals [Hash] a hash of local variables to use in the partial
