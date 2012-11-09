@@ -9,6 +9,27 @@ module Haml
     @buffer_option_keys << :partial_base_dir
     attr_accessor :partial_base_dir
 
+    def to_hash
+      self.class.defaults.keys.inject({}) do |hash, key|
+        hash[key] = send(key)
+        hash
+      end
+    end
+
+  end
+
+  class Engine
+
+    def render_with_options(scope = Object.new, locals = {}, &block)
+      # We need to be able to get the original options to use when rendering partials,
+      # so we "hide" them in the scope object. (We can't just use the buffer options as
+      # we need _all_ the options.)
+      scope.instance_variable_set '@_original_options', options unless scope.instance_variable_get '@_original_options'
+      original_render(scope, locals, &block)
+    end
+    alias :original_render :render
+    alias :render :render_with_options
+    alias :to_html :render_with_options
   end
 
   module Helpers
@@ -38,7 +59,7 @@ module Haml
     # @raise [StandardError] if the partial file cannot be found
 
     def render(partial, locals = {})
-      Haml::Engine.new(File.read(find_file_for_partial(partial))).render(self, locals)
+      Haml::Engine.new(File.read(find_file_for_partial(partial)), @_original_options.to_hash).render(self, locals)
     end
     
     private

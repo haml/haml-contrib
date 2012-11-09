@@ -19,4 +19,10 @@ class PartialsTest < Minitest::Unit::TestCase
     assert_equal "42\n", render('instance_vars.haml')
   end
 
+  def test_options
+    html = render('options.haml', :attr_wrapper => '"', :remove_whitespace => true)
+
+    assert_match /"foo"/, html # :attr_wrapper is in options_for_buffer
+    assert_match />Text</, html # :remove_whitespace isn't in options_for_buffer
+  end
 end
