@@ -25,9 +25,9 @@ module Haml
       # so we "hide" them in the scope object. (We can't just use the buffer options as
       # we need _all_ the options.)
       scope.instance_variable_set '@_original_options', options unless scope.instance_variable_get '@_original_options'
-      original_render(scope, locals, &block)
+      render_without_options(scope, locals, &block)
     end
-    alias :original_render :render
+    alias :render_without_options :render
     alias :render :render_with_options
     alias :to_html :render_with_options
   end
