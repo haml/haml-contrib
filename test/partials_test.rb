@@ -4,7 +4,8 @@ require "haml/partials"
 class PartialsTest < Minitest::Unit::TestCase
 
   def render(file, options = {})
-    super File.read(File.expand_path(file, 'test/partials')), options.merge(:partial_base_dir => 'test/partials')
+    base_dir = File.expand_path('../partials', __FILE__)
+    super File.read(File.expand_path(file, base_dir)), options.merge(:partial_base_dir => base_dir)
   end
 
   def test_basic_partial
