@@ -19,8 +19,8 @@ module Haml
 
       unnamed = render_without_layout(scope, locals)
       
-      Haml::Engine.new(File.read(layout_file), options.to_hash).render_without_layout(scope, locals) do |region|
-        region ? regions[region] : unnamed
+      Haml::Engine.new(File.read(layout_file), options.to_hash).render_without_layout(scope, locals) do |*region|
+        region[0] ? regions[region[0]] : unnamed
       end
     end
     alias :render_without_layout :render
