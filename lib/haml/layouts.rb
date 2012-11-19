@@ -3,13 +3,8 @@ require 'haml/options_ext'
 
 module Haml
 
-  class Options
-    @defaults[:layout_base_dir] = Dir.getwd
-    attr_accessor :layout_base_dir
-
-    @defaults[:layout] = 'layout.haml'
-    attr_accessor :layout
-  end
+  Options.add_option :layout_base_dir, Dir.getwd
+  Options.add_option :layout, 'layout.haml'
 
   class Engine
 

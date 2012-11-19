@@ -12,6 +12,12 @@ module Haml
       end
     end
 
+    def self.add_option(name, default, for_buffer=false)
+      @defaults[name] = default
+      attr_accessor name
+      @buffer_option_keys << name if for_buffer
+    end
+
   end
 
   class Engine

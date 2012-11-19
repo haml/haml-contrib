@@ -3,14 +3,7 @@ require 'haml/options_ext'
 
 module Haml
 
-  # @private
-  class Options
-
-    @defaults[:partial_base_dir] = Dir.getwd
-    @buffer_option_keys << :partial_base_dir
-    attr_accessor :partial_base_dir
-
-  end
+  Options.add_option :partial_base_dir, Dir.getwd, true
 
   module Helpers
 
