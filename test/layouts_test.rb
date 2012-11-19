@@ -23,4 +23,16 @@ class LayoutTest < Minitest::Unit::TestCase
     assert_css('p.content', html)
   end
 
+  def test_layout_uses_same_options
+    html = render('layout_uses_same_options_content.haml',
+            :layout => 'layout_uses_same_options_layout.haml',
+            :attr_wrapper => '"', :remove_whitespace => true)
+
+    assert_match /class="layout"/, html
+    assert_match /class="content"/, html
+
+    assert_match /class="layout"><div/, html
+    assert_match /class="content">Content/, html
+  end
+
 end

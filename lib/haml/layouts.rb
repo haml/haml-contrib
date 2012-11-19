@@ -1,3 +1,6 @@
+require 'haml'
+require 'haml/options_ext'
+
 module Haml
 
   class Options
@@ -21,7 +24,7 @@ module Haml
 
       unnamed = render_without_layout(scope, locals)
       
-      Haml::Engine.new(File.read(layout_file)).render_without_layout(scope, locals) do |region|
+      Haml::Engine.new(File.read(layout_file), options.to_hash).render_without_layout(scope, locals) do |region|
         region ? regions[region] : unnamed
       end
     end
