@@ -8,4 +8,4 @@ This gives the Haml project a reasonable way to both demote current
 functionality, such as the Textile and Maruku filters, and add new experimental
 functionality that may later be added to the core.
 
-Haml-contrib currently requires the latest alpha version of Haml.
+Haml-contrib requires Haml 4.0 or later.
