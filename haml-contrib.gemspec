@@ -13,5 +13,6 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "haml", ">= 3.2.0.alpha.13"
   spec.add_development_dependency "minitest"
+  spec.add_development_dependency "asciidoctor"
 
 end
