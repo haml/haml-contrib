@@ -12,7 +12,7 @@ Haml-contrib requires Haml 4.0 or later.
 
 ## License
 
-Copyright (c) 2006-2013 Hampton Catlil, Nathan Weizenbaum and Norman Clarke
+Copyright (c) 2006-2014 Hampton Catlil, Natalie Weizenbaum and Norman Clarke
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
