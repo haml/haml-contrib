@@ -7,7 +7,6 @@ Gem::Specification.new do |spec|
   spec.files       = Dir['lib/**/*', 'test/**/*', '*.md']
   spec.test_files  = Dir["test/**/*"]
   spec.homepage    = 'http://haml.info/'
-  spec.has_rdoc    = false
   spec.description = "Addons for the Ruby implementation of the Haml template language."
   spec.license     = "MIT"
 
