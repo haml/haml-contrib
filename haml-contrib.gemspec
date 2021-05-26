@@ -11,6 +11,7 @@ Gem::Specification.new do |spec|
   spec.license     = "MIT"
 
   spec.add_dependency "haml", ">= 3.2.0.alpha.13"
+  spec.add_development_dependency "babel-transpiler"
   spec.add_development_dependency "minitest"
 
 end
